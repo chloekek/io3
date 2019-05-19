@@ -1,0 +1,17 @@
+// Functors in the I/O 3 category.
+
+type Functor f r is Record <
+    functorMap of forall a b in (a -> b) -> (f a -> f b),
+    r
+>;
+
+type Applicative f r is Functor f <
+    functorPure of forall a in a -> f a,
+    functorApply of forall a b in f (a -> b) -> (f a -> f b),
+    r
+>;
+
+type Monad f r is Applicative f <
+    functorJoin of forall a in f (f a) -> f a,
+    r
+>;

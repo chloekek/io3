@@ -1,0 +1,21 @@
+// Structures from group theory.
+
+type Semigroup a r is Record <
+    groupOperation of a -> a -> a,
+    r
+>;
+
+type Monoid a r is Semigroup a <
+    groupIdentity of a,
+    r
+>;
+
+type Group a r is Monoid a <
+    groupInverse of a -> a,
+    r
+>;
+
+type Commutative a r is Semigroup a <
+    groupCommutative of {},
+    r
+>;

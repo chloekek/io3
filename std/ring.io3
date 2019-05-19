@@ -1,0 +1,19 @@
+// Structures from ring theory.
+
+type Semiring a r is Record <
+    ringAdd      of a -> a -> a,
+    ringMultiply of a -> a -> a,
+    ringZero     of a,
+    ringOne      of a,
+    r
+>;
+
+type Ring a r is Semiring a <
+    ringNegate of a -> a,
+    r
+>;
+
+type DivisionRing a r is Ring a <
+    ringReciprocal of a -> a,
+    r
+>;

@@ -1,0 +1,16 @@
+// Structures from order theory.
+
+type Ordering is
+    [ lt of {}
+    , eq of {}
+    , gt of {} ];
+
+type Equivalence a r is Record <
+    orderEquivalent of a -> a -> bool,
+    r
+>;
+
+type Order a r is Equivalence a <
+    orderOrdering of a -> a -> Ordering,
+    r
+>;

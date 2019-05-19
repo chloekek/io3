@@ -1,0 +1,16 @@
+// Structures from category theory.
+
+type Semigroupoid k r is Record <
+    categoryCompose of forall a b c in k b c -> k a b -> k a c,
+    r
+>;
+
+type Category k r is Semigroupoid k <
+    categoryIdentity of forall a in k a a,
+    r
+>;
+
+type Groupoid k r is Category k <
+    categoryInverse of forall a b in k a b -> k b a,
+    r
+>;

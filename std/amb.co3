@@ -1,0 +1,11 @@
+#include "amb.io3"
+
+value runAmb is
+    runAmb#;
+
+value monadAmb is {
+    functorMap is mapAmb#,
+    functorPure is pureAmb#,
+    functorApply is applyAmb#,
+    functorJoin is joinAmb#,
+};

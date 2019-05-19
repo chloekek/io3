@@ -1,0 +1,14 @@
+// The Amb type and monad.
+
+#include "functor.io3"
+
+type Amb is Amb#;
+
+value runAmb of
+    forall r e a
+    in (forall s in Amb s r e a)
+    -> (r -> e + a);
+
+value monadAmb of
+    forall s r e
+    in Monad (Amb s r e) <>;
